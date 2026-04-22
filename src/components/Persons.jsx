@@ -78,7 +78,7 @@ export const PersonForm = ({newName,setNewName,newNumber,setNewNumber,persons,se
                   .catch((err)=>{
                     console.log(`Error ocurred during update `,err)
                     setNotification({
-                      text:`${err.response.data.error }`,
+                      text:`${ err.response.data.error || 'Unexpected error while updating'}`,
                       isSuccess:0
                     })
                     setTimeout(() => {
@@ -109,10 +109,9 @@ export const PersonForm = ({newName,setNewName,newNumber,setNewNumber,persons,se
             else console.log('Oops! Somethings goes wrong! status->',response.status)
           })
           .catch(err=>{
-            console.log(`Error creating entry`,err.response)
-            if (err.response.statusText)
+            console.log(`Error ocurred during creation `,err)
             setNotification({
-              text:`Error:${err.response.data.error}`,
+              text:`Error:${err.response.data.error || 'Unexpected error while creating'}`,
               isSuccess:0
             })
             setTimeout(() => {
