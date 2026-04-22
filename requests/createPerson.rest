@@ -1,0 +1,7 @@
+POST http://fso-part3-backend-fies.onrender.com/api/persons
+Content-Type: application/json
+
+{
+    "name": "Carlos",
+    "number": "1234"
+}
